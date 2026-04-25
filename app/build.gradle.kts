@@ -5,8 +5,7 @@ plugins {
 android {
     namespace = "com.example.appbandacomponente"
     compileSdk {
-        version = release(35) {
-            minorApiLevel = 1
+        version = release(36) {
         }
     }
 

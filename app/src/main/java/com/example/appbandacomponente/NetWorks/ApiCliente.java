@@ -4,15 +4,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Clase encargada de configurar y proporcionar la conexion unica (Singleton)
- * con la API REST de Spring Boot para toda la aplicacion.
+ * Introduccion explicativa:
+ * Configuracion del cliente Retrofit para establecer la conexion base.
+ * Gestiona la direccion IP y el puerto de comunicacion con el servidor local.
  */
 public class ApiCliente {
-
     private static Retrofit retrofit = null;
-    // Pon aqui la IP local de tu ordenador si pruebas en emulador (ej. 10.0.2.2)
-    // o la IP de tu servidor si ya esta subida.
-    private static final String URL_BASE = "http://192.168.1.100:8080/";
+
+    // Recuerda usar 10.0.2.2 para el emulador o la IP de tu PC para movil real
+    private static final String URL_BASE = "http://10.0.2.2:8080/";
 
     public static ApiServicio obtenerInstancia() {
         if (retrofit == null) {
