@@ -12,7 +12,9 @@ public class ApiCliente {
     private static Retrofit retrofit = null;
 
     // Recuerda usar 10.0.2.2 para el emulador o la IP de tu PC para movil real
-    private static final String URL_BASE = "http://10.0.2.2:8080/";
+    // private static final String URL_BASE = "http://192.168.1.23:8080/";
+    // CORRECTO (Con la barra al final)
+    private static final String URL_BASE = "https://app-9f547ff2-15e5-49e5-8761-17b3eba05bb3.cleverapps.io/";
 
     public static ApiServicio obtenerInstancia() {
         if (retrofit == null) {

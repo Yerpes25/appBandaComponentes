@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contenedorCabecera"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#2A5C9A"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <TextView
+        android:id="@+id/textoTituloCabecera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Panel del Componente"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/iconoPerfil"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="Acceso al perfil"
+        android:src="@android:drawable/ic_menu_myplaces" />
+
+    <ImageView
+        android:id="@+id/iconoNotificaciones"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:contentDescription="Campana de notificaciones"
+        android:src="@android:drawable/ic_popup_reminder" />
+</LinearLayout>

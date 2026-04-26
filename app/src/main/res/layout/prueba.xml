@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F0F2F5">
+    <FrameLayout android:id="@+id/contenedorPrincipal" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/barraInferior"/>
+    <LinearLayout android:id="@+id/barraInferior" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:background="#2A5C9A" android:baselineAligned="false" android:orientation="horizontal" android:paddingTop="8dp" android:paddingBottom="8dp">
+        <LinearLayout android:id="@+id/botonPanel" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:layout_marginBottom="4dp" android:contentDescription="Ir al panel" android:src="@android:drawable/ic_menu_sort_by_size"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Panel" android:textColor="#FFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/botonMarchas" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:layout_marginBottom="4dp" android:contentDescription="Ver marchas" android:src="@android:drawable/ic_media_play"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Marchas" android:textColor="#FFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/botonInfo" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:layout_marginBottom="4dp" android:contentDescription="Información" android:src="@android:drawable/ic_menu_info_details"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Info" android:textColor="#FFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/botonInsignias" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:layout_marginBottom="4dp" android:contentDescription="Ver insignias" android:src="@android:drawable/ic_menu_my_calendar"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Insignias" android:textColor="#FFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/botonChat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:layout_marginBottom="4dp" android:contentDescription="Abrir chat" android:src="@android:drawable/sym_action_chat"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Chat" android:textColor="#FFFFFF" android:textSize="12sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

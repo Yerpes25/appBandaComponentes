@@ -1,69 +1,128 @@
 package com.example.appbandacomponente;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-// IMPORTANTE: Estos imports dependen de que ya hayas creado estas clases
-// Si te salen en rojo, es porque todavia no hemos creado los archivos en esas carpetas
+import com.example.appbandacomponente.NetWorks.ApiCliente;
 import com.example.appbandacomponente.Models.CredencialesLogin;
 import com.example.appbandacomponente.Models.Usuario;
-import com.example.appbandacomponente.NetWorks.ApiCliente;
+import com.example.appbandacomponente.Utilities.GestorSesion;
+import com.example.appbandacomponente.View.Activities.PanelPrincipalActividad;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Actividad principal que se lanza al abrir la aplicacion.
- * Actualmente contiene una prueba de conexion directa con la API de Spring Boot.
+ * Introduccion explicativa:
+ * Pantalla principal de inicio de sesion.
+ * Captura los datos introducidos por el componente, los envia a la API
+ * y, si son correctos, guarda la sesion y permite el paso.
  */
 public class MainActivity extends AppCompatActivity {
+
+    private EditText campoUsuario;
+    private EditText campoContrasena;
+    private Button botonEntrar;
+
+    private GestorSesion gestorSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main); // Asegurate de que tu XML de login se llama asi o cambialo
+
+        // Inicializamos el gestor de sesion
+        gestorSesion = new GestorSesion(this);
+
+        // --- INICIO DE LA MAGIA: COMPROBACIÓN DE SESIÓN ---
+        if (gestorSesion.estaLogueado()) {
+            // Si ya está logueado, saltamos directo al panel
+            Intent intencion = new Intent(MainActivity.this, PanelPrincipalActividad.class);
+            startActivity(intencion);
+            finish(); // Matamos el login
+            return; // El "return" hace que el código de abajo no se ejecute, ahorrando tiempo
+        }
+
+        // Si no está logueado, cargamos la pantalla normal de login
         setContentView(R.layout.activity_main);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        // 1. Vinculamos el codigo Java con los elementos de tu diseño XML
+        campoUsuario = findViewById(R.id.entradaUsuario);
+        campoContrasena = findViewById(R.id.entradaContrasena);
+        botonEntrar = findViewById(R.id.botonEntrar);
+
+        // 2. Le decimos al boton que debe hacer al ser pulsado
+        botonEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Capturamos el texto de las cajas
+                String usuarioTexto = campoUsuario.getText().toString().trim();
+                String contrasenaTexto = campoContrasena.getText().toString().trim();
+
+                // Comprobamos que no esten vacios
+                if (usuarioTexto.isEmpty() || contrasenaTexto.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Por favor, rellena todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Llamamos a la funcion que habla con el servidor
+                procesarLogin(usuarioTexto, contrasenaTexto);
+            }
         });
+    }
 
-        // --- INICIO DE LA PRUEBA DE CONEXION ---
-        Log.d("PRUEBA_RED", "Iniciando prueba de conexion con Spring Boot...");
+    private void procesarLogin(String usuario, String contrasena) {
+        // Desactivamos el boton temporalmente para que no le den dos veces
+        botonEntrar.setEnabled(false);
+        botonEntrar.setText("Conectando...");
 
-        // 1. Creamos unas credenciales falsas
-        CredencialesLogin credencialesPrueba = new CredencialesLogin("usuario_prueba", "1234");
-
-        // 2. Hacemos la llamada manual usando el cliente
-        Call<Usuario> llamada = ApiCliente.obtenerInstancia().realizarLogin(credencialesPrueba);
+        CredencialesLogin credenciales = new CredencialesLogin(usuario, contrasena);
+        Call<Usuario> llamada = ApiCliente.obtenerInstancia().realizarLogin(credenciales);
 
         llamada.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                Log.d("PRUEBA_RED", "¡EXITO! El servidor ha respondido. Codigo HTTP: " + response.code());
+                // Volvemos a activar el boton
+                botonEntrar.setEnabled(true);
+                botonEntrar.setText("Entrar");
 
-                if (response.isSuccessful()) {
-                    Log.d("PRUEBA_RED", "Ademas, el login ha sido correcto.");
+                if (response.isSuccessful() && response.body() != null) {
+                    // ¡LOGIN CORRECTO! El servidor nos devuelve los datos del musico
+                    Usuario usuarioServidor = response.body();
+
+                    // Guardamos la sesion para que no tenga que volver a meter la contraseña
+                    gestorSesion.crearSesion(
+                            usuarioServidor.getIdUsuario(),
+                            usuarioServidor.getNombre(),
+                            usuarioServidor.getCargo()
+                    );
+
+                    Toast.makeText(MainActivity.this, "¡Bienvenido, " + usuarioServidor.getNombre() + "!", Toast.LENGTH_LONG).show();
+
+                    Intent intencion = new Intent(MainActivity.this, PanelPrincipalActividad.class);
+                    startActivity(intencion);
+                    finish();
+
                 } else {
-                    Log.d("PRUEBA_RED", "Las credenciales son falsas, pero la conexion funciona perfecto.");
+                    // El servidor respondio pero dijo "No Autorizado" (Credenciales malas)
+                    Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
-                Log.e("PRUEBA_RED", "¡ERROR FATAL! No se pudo conectar al servidor.");
-                Log.e("PRUEBA_RED", "Motivo: " + t.getMessage());
+                // Error grave (sin internet, servidor apagado...)
+                botonEntrar.setEnabled(true);
+                botonEntrar.setText("Entrar");
+                Toast.makeText(MainActivity.this, "Error de conexion con el servidor", Toast.LENGTH_LONG).show();
             }
         });
-        // --- FIN DE LA PRUEBA DE CONEXION ---
     }
 }

@@ -1,21 +1,35 @@
 package com.example.appbandacomponente.Models;
+
 /**
  * Introduccion explicativa:
  * Clase auxiliar utilizada para el transporte de datos durante el inicio de sesion.
- * Empaqueta el nombre de usuario y la contraseña para enviarlos a la API.
+ * Empaqueta el correo y la clave para enviarlos a la API de Spring Boot.
+ * ATENCION: Los nombres de las variables (correo y clave) DEBEN coincidir
+ * exactamente con los que espera el servidor.
  */
 public class CredencialesLogin {
-    private String usuario;
-    private String contrasena;
 
-    public CredencialesLogin(String usuario, String contrasena) {
-        this.usuario = usuario;
-        this.contrasena = contrasena;
+    private String correo; // Antes se llamaba 'usuario'
+    private String clave;  // Antes se llamaba 'contrasena'
+
+    public CredencialesLogin(String correo, String clave) {
+        this.correo = correo;
+        this.clave = clave;
     }
 
-    public String getUsuario() { return usuario; }
-    public void setUsuario(String usuario) { this.usuario = usuario; }
+    public String getCorreo() {
+        return correo;
+    }
 
-    public String getContrasena() { return contrasena; }
-    public void setContrasena(String contrasena) { this.contrasena = contrasena; }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
 }
