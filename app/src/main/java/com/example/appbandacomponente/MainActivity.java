@@ -97,11 +97,17 @@ public class MainActivity extends AppCompatActivity {
                     // ¡LOGIN CORRECTO! El servidor nos devuelve los datos del musico
                     Usuario usuarioServidor = response.body();
 
+                    int idBanda = -1; // Valor por defecto si no tiene banda
+                    if (usuarioServidor.getBanda() != null) {
+                        idBanda = usuarioServidor.getBanda().getIdBanda();
+                    }
+
                     // Guardamos la sesion para que no tenga que volver a meter la contraseña
                     gestorSesion.crearSesion(
                             usuarioServidor.getIdUsuario(),
                             usuarioServidor.getNombre(),
-                            usuarioServidor.getCargo()
+                            usuarioServidor.getCargo(),
+                            usuarioServidor.getBanda().getIdBanda()
                     );
 
                     Toast.makeText(MainActivity.this, "¡Bienvenido, " + usuarioServidor.getNombre() + "!", Toast.LENGTH_LONG).show();

@@ -15,6 +15,7 @@ public class GestorSesion {
     private static final String CLAVE_ID_USUARIO = "idUsuario";
     private static final String CLAVE_NOMBRE = "nombreUsuario";
     private static final String CLAVE_CARGO = "cargoUsuario";
+    private static final String CLAVE_ID_BANDA = "idBanda";
 
     private SharedPreferences preferencias;
     private SharedPreferences.Editor editor;
@@ -27,10 +28,11 @@ public class GestorSesion {
     /**
      * Guarda los datos basicos del usuario tras un login exitoso.
      */
-    public void crearSesion(int idUsuario, String nombre, String cargo) {
+    public void crearSesion(int idUsuario, String nombre, String cargo, int idBanda) {
         editor.putInt(CLAVE_ID_USUARIO, idUsuario);
         editor.putString(CLAVE_NOMBRE, nombre);
         editor.putString(CLAVE_CARGO, cargo);
+        editor.putInt(CLAVE_ID_BANDA, idBanda);
         editor.apply(); // Guarda de forma asincrona (mas rapido)
     }
 
@@ -47,6 +49,10 @@ public class GestorSesion {
     public void cerrarSesion() {
         editor.clear();
         editor.apply();
+    }
+
+    public int obtenerIdBanda() {
+        return preferencias.getInt(CLAVE_ID_BANDA, -1);
     }
 
     public String obtenerNombreUsuario() {

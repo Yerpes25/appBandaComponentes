@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -123,46 +124,10 @@
             app:cardElevation="2dp">
 
             <LinearLayout
+                android:id="@+id/contenedorDinamicoEnsayos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textoEnsayo1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="12 OCT - Ensayo por Secciones (Sala 1)"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#E0E0E0" />
-
-                <TextView
-                    android:id="@+id/textoEnsayo2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="19 OCT - Ensayo General con Director (Auditorio)"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#E0E0E0" />
-
-                <TextView
-                    android:id="@+id/textoEnsayo3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="26 OCT - Ensayo de Marcha (Patio Exterior)"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -186,46 +151,10 @@
             app:cardElevation="2dp">
 
             <LinearLayout
+                android:id="@+id/contenedorDinamicoEventos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textoEvento1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="15 OCT - Concierto de Primavera (Auditorio)"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#E0E0E0" />
-
-                <TextView
-                    android:id="@+id/textoEvento2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="22 OCT - Desfile Anual (Centro Ciudad)"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#E0E0E0" />
-
-                <TextView
-                    android:id="@+id/textoEvento3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:text="05 NOV - Festival de Música (Parque Central)"
-                    android:textColor="#333333"
-                    android:textSize="14sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
