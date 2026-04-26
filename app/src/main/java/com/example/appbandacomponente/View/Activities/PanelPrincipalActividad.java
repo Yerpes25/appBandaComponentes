@@ -2,13 +2,21 @@ package com.example.appbandacomponente.View.Activities;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.appbandacomponente.R;
-import com.example.appbandacomponente.View.Fragments.InicioPanelFragmento;
+import com.example.appbandacomponente.Utilities.GestorSesion;
+import com.example.appbandacomponente.View.Fragments.ChatFragment;
+import com.example.appbandacomponente.View.Fragments.InfoBandaFragment;
+import com.example.appbandacomponente.View.Fragments.InicioPanelFragment;
+import com.example.appbandacomponente.View.Fragments.InsigniasFragment;
+import com.example.appbandacomponente.View.Fragments.MarchasFragment;
+import com.example.appbandacomponente.View.Fragments.PerfilFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -30,7 +38,7 @@ public class PanelPrincipalActividad extends AppCompatActivity {
 
         // Cargamos el panel principal por defecto al abrir la actividad
         if (savedInstanceState == null) {
-            cargarFragmento(new InicioPanelFragmento());
+            cargarFragmento(new InicioPanelFragment());
         }
 
         // Configuramos los clics en los botones de abajo
@@ -43,15 +51,15 @@ public class PanelPrincipalActividad extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if (id == R.id.nav_panel) {
-                    fragmentoSeleccionado = new InicioPanelFragmento();
+                    fragmentoSeleccionado = new InicioPanelFragment();
                 } else if (id == R.id.nav_marchas) {
-                    // TODO: Cambiar por MarchasFragmento cuando lo crees
+                    fragmentoSeleccionado = new MarchasFragment();
                 } else if (id == R.id.nav_info) {
-                    // TODO: Cambiar por InfoFragmento cuando lo crees
+                    fragmentoSeleccionado = new InfoBandaFragment();
                 } else if (id == R.id.nav_insignias) {
-                    // TODO: Cambiar por InsigniasFragmento cuando lo crees
+                    fragmentoSeleccionado = new InsigniasFragment();
                 } else if (id == R.id.nav_chat) {
-                    // TODO: Cambiar por ChatFragmento cuando lo crees
+                    fragmentoSeleccionado = new ChatFragment();
                 }
 
                 if (fragmentoSeleccionado != null) {
@@ -68,6 +76,33 @@ public class PanelPrincipalActividad extends AppCompatActivity {
         if (savedInstanceState == null) {
             barraNavegacion.setSelectedItemId(R.id.nav_panel);
         }
+
+        View cabecera = findViewById(R.id.cabecera_incluida);
+        View fotoPerfil = cabecera.findViewById(R.id.contenedorFotoPerfil);
+
+        fotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popup = new PopupMenu(PanelPrincipalActividad.this, v);
+                popup.getMenu().add("Mi Perfil");
+                popup.getMenu().add("Ajustes");
+                popup.getMenu().add("Cerrar Sesión");
+
+                popup.setOnMenuItemClickListener(item -> {
+                    switch (item.getTitle().toString()) {
+                        case "Mi Perfil":
+                            cargarFragmento(new PerfilFragment());
+                            return true;
+                        case "Cerrar Sesión":
+                            new GestorSesion(PanelPrincipalActividad.this).cerrarSesion();
+                            finish();
+                            return true;
+                    }
+                    return false;
+                });
+                popup.show();
+            }
+        });
     }
 
     /**

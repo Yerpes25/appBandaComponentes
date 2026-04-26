@@ -106,8 +106,25 @@ public class MainActivity extends AppCompatActivity {
                     gestorSesion.crearSesion(
                             usuarioServidor.getIdUsuario(),
                             usuarioServidor.getNombre(),
-                            usuarioServidor.getCargo(),
-                            usuarioServidor.getBanda().getIdBanda()
+                            usuarioServidor.getBanda().getIdBanda(),
+                            usuarioServidor.getRolApp(),
+                            usuarioServidor.getFotoPerfil()
+                    );
+
+                    gestorSesion.guardarDatosExtra(
+                            usuarioServidor.getApellidos(),
+                            usuarioServidor.getDni(),
+                            usuarioServidor.getTelefono(),
+                            usuarioServidor.getEmail(),
+                            usuarioServidor.getPassword(),
+                            usuarioServidor.getBiografia(),
+                            usuarioServidor.getContactEmerg(),
+                            usuarioServidor.getTallaCamisa(),
+                            usuarioServidor.getTallaPantalon(),
+                            usuarioServidor.getTallaGorra(),
+                            usuarioServidor.getTallaChaqueta(),
+                            usuarioServidor.getfNacimiento() != null ? usuarioServidor.getfNacimiento().toString() : "",
+                            usuarioServidor.getDireccion()
                     );
 
                     Toast.makeText(MainActivity.this, "¡Bienvenido, " + usuarioServidor.getNombre() + "!", Toast.LENGTH_LONG).show();

@@ -10,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -23,4 +24,6 @@ public interface ApiServicio {
     Call<Usuario> realizarLogin(@Body CredencialesLogin credenciales);
     @GET("api/eventos/banda/{idBanda}")
     Call<List<Evento>> obtenerEventosPorBanda(@Path("idBanda") int idBanda);
+    @PUT("api/usuarios/actualizar/{id}")
+    Call<Usuario> actualizarUsuario(@Path("id") int id, @Body Usuario usuario);
 }

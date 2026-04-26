@@ -1,7 +1,6 @@
 package com.example.appbandacomponente.View.Fragments;
 
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +19,6 @@ import com.example.appbandacomponente.R;
 import com.example.appbandacomponente.Utilities.GestorSesion;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -35,7 +33,7 @@ import retrofit2.Response;
  * Aqui se mostraran los avisos importantes y la lista de proximos eventos,
  * descargados directamente de la base de datos segun la banda del usuario.
  */
-public class InicioPanelFragmento extends Fragment {
+public class InicioPanelFragment extends Fragment {
 
     private LinearLayout contenedorEnsayos;
     private LinearLayout contenedorEventos;

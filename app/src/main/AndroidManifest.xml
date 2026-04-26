@@ -28,6 +28,10 @@
             android:name=".View.Activities.PanelPrincipalActividad"
             android:exported="false" />
 
+        <meta-data
+            android:name="com.google.android.js.maps.API_KEY"
+            android:value="AIzaSyCfZDE3MhKvITcCTwlBaYNjwXlCrK64Ga0" />
+
     </application>
 
 </manifest>

@@ -1,38 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/contenedorCabecera"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="150dp"
     android:background="#2A5C9A"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp">
+    android:paddingStart="20dp"
+    android:paddingEnd="10dp">
 
     <TextView
-        android:id="@+id/textoTituloCabecera"
+        android:id="@+id/textoLogoBanda"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Panel del Componente"
+        android:text="BANDA APP"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/iconoPerfil"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="20dp"
-        android:contentDescription="Acceso al perfil"
-        android:src="@android:drawable/ic_menu_myplaces" />
-
-    <ImageView
         android:id="@+id/iconoNotificaciones"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:contentDescription="Campana de notificaciones"
-        android:src="@android:drawable/ic_popup_reminder" />
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="20dp"
+        android:src="@android:drawable/ic_popup_reminder"
+        android:contentDescription="Notificaciones"
+        app:tint="#FFFFFF" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/contenedorFotoPerfil"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#F0F2F5">
+
+        <ImageView
+            android:id="@+id/imagenPerfilUsuarioHeader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_menu_camera"
+            android:contentDescription="Foto del musico" />
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>
