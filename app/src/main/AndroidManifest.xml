@@ -29,8 +29,8 @@
             android:exported="false" />
 
         <meta-data
-            android:name="com.google.android.js.maps.API_KEY"
-            android:value="AIzaSyCfZDE3MhKvITcCTwlBaYNjwXlCrK64Ga0" />
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBQkIRQMewiHz0a0qGXwH7EKTRBo7dDjP8" />
 
     </application>
 

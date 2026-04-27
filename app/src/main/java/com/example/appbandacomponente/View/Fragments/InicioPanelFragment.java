@@ -110,69 +110,84 @@ public class InicioPanelFragment extends Fragment {
     }
 
     /**
-     * Llama al servidor para obtener las noticias de la banda.
+     * Gestiona la descarga y visualización de los anuncios del tablón.
+     * Si no hay noticias, configura la interfaz para mostrar un aviso informativo.
      */
     private void descargarNoticias() {
         int idBanda = gestorSesion.obtenerIdBanda();
-        if (idBanda == -1) return;
+
+        // Si el usuario no tiene banda, forzamos el estado vacío inmediatamente
+        if (idBanda == -1) {
+            listaNoticias = null;
+            actualizarVistaCarrusel();
+            return;
+        }
 
         Call<List<TablonAnuncio>> llamada = ApiCliente.obtenerInstancia().obtenerNoticiasPorBanda(idBanda);
         llamada.enqueue(new Callback<List<TablonAnuncio>>() {
             @Override
             public void onResponse(Call<List<TablonAnuncio>> call, Response<List<TablonAnuncio>> response) {
-                if (response.isSuccessful() && response.body() != null) {
+                /* * Definicion: Verificamos si la respuesta es exitosa y contiene elementos.
+                 * En caso contrario, tratamos la lista como nula para disparar el aviso de vacio.
+                 */
+                if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
                     listaNoticias = response.body();
                     indiceNoticiaActual = 0;
-                    actualizarVistaCarrusel();
                 } else {
-                    textoTituloNoticia.setText("Aviso");
-                    textoCuerpoNoticia.setText("No se pudieron cargar las noticias.");
+                    listaNoticias = null;
                 }
+                actualizarVistaCarrusel();
             }
 
             @Override
             public void onFailure(Call<List<TablonAnuncio>> call, Throwable t) {
-                textoTituloNoticia.setText("Error");
-                textoCuerpoNoticia.setText("Fallo de conexión al buscar noticias.");
+                listaNoticias = null;
+                actualizarVistaCarrusel();
             }
         });
     }
 
     /**
-     * Actualiza los textos y los indicadores del carrusel en funcion de la noticia seleccionada.
-     * Nota: Asegurate de usar los metodos get correctos de tu modelo (ej: getTitulo(), getDescripcion()).
+     * Refresca los componentes visuales del carrusel de noticias.
+     * Controla la visibilidad de las flechas y los indicadores según la disponibilidad de datos.
      */
     private void actualizarVistaCarrusel() {
+        /*
+         * Definicion: Si no existen noticias, actualizamos los textos de la tarjeta
+         * con un mensaje de aviso y ocultamos los iconos de navegacion.
+         */
         if (listaNoticias == null || listaNoticias.isEmpty()) {
             textoTituloNoticia.setText("Sin avisos");
-            textoCuerpoNoticia.setText("No hay noticias importantes para mostrar.");
+            textoCuerpoNoticia.setText("No hay de momento noticias o avisos importantes para mostrar.");
             textoIndicadoresCarrusel.setText("");
+
+            iconoAnterior.setVisibility(View.INVISIBLE);
+            iconoSiguiente.setVisibility(View.INVISIBLE);
             return;
         }
 
+        /*
+         * Definicion: Si hay noticias disponibles, restauramos la navegacion
+         * y pintamos el contenido segun el indice seleccionado.
+         */
+        iconoAnterior.setVisibility(View.VISIBLE);
+        iconoSiguiente.setVisibility(View.VISIBLE);
+
         TablonAnuncio noticiaActual = listaNoticias.get(indiceNoticiaActual);
         textoTituloNoticia.setText(noticiaActual.getTitulo());
-        // Aqui usamos getMensaje() que es como se llama en el modelo de tu backend
         textoCuerpoNoticia.setText(noticiaActual.getMensaje());
 
+        // Actualizacion de los puntos indicadores de posicion
         StringBuilder indicadores = new StringBuilder();
         for (int i = 0; i < listaNoticias.size(); i++) {
-            if (i == indiceNoticiaActual) {
-                indicadores.append("● ");
-            } else {
-                indicadores.append("○ ");
-            }
+            indicadores.append(i == indiceNoticiaActual ? "● " : "○ ");
         }
         textoIndicadoresCarrusel.setText(indicadores.toString().trim());
 
+        // Ajuste de la transparencia para indicar limites de navegacion
         iconoAnterior.setAlpha(indiceNoticiaActual == 0 ? 0.3f : 1.0f);
         iconoSiguiente.setAlpha(indiceNoticiaActual == listaNoticias.size() - 1 ? 0.3f : 1.0f);
     }
-
-    /**
-     * Metodo que llama al servidor de Spring Boot para pedir todos los eventos
-     * pertenecientes a la banda del usuario que ha iniciado sesion.
-     */
     /**
      * Metodo principal de carga.
      * Primero descarga los votos del usuario de la base de datos

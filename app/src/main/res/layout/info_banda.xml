@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -58,24 +59,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/tarjetaAnuncios"
+            <LinearLayout
+                android:id="@+id/contenedorAnunciosInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
-
-                <TextView
-                    android:id="@+id/textoAnunciosContenido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="4dp"
-                    android:padding="16dp"
-                    android:text="• Próxima reunión de directiva el lunes.\n• Recogida de nuevos uniformes en el local.\n• Pago de cuota mensual antes del día 10."
-                    android:textColor="#666666"
-                    android:textSize="14sp" />
-            </androidx.cardview.widget.CardView>
+                android:orientation="vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,12 +82,28 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
-<!--                <androidx.fragment.app.FragmentContainerView-->
-<!--                    android:id="@+id/mapaLocalEnsayo"-->
-<!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="match_parent" />-->
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/mapaInfo"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Componentes de la Banda"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/contenedorComponentesInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,34 +115,32 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:id="@+id/contenedorRedes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/iconoInstagram"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
+                    android:id="@+id/btnInstagram"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="15dp"
                     android:src="@android:drawable/ic_menu_camera"
                     app:tint="#E1306C" />
 
                 <ImageView
-                    android:id="@+id/iconoFacebook"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
-                    android:src="@android:drawable/ic_menu_share"
-                    app:tint="#4267B2" />
+                    android:id="@+id/btnTwitter"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="15dp"
+                    android:src="@android:drawable/ic_menu_send"
+                    app:tint="#1DA1F2" />
 
                 <ImageView
-                    android:id="@+id/iconoYoutube"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_margin="12dp"
+                    android:id="@+id/btnYoutube"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="15dp"
                     android:src="@android:drawable/ic_media_play"
                     app:tint="#FF0000" />
             </LinearLayout>

@@ -1,8 +1,14 @@
 package com.example.appbandacomponente.NetWorks;
 
 import com.example.appbandacomponente.Models.Asistencia;
+import com.example.appbandacomponente.Models.Banda;
+import com.example.appbandacomponente.Models.ComponenteDTO;
 import com.example.appbandacomponente.Models.CredencialesLogin;
+import com.example.appbandacomponente.Models.EstadisticasAsistenciaDTO;
 import com.example.appbandacomponente.Models.Evento;
+import com.example.appbandacomponente.Models.InsigniaOtorgadaDTO;
+import com.example.appbandacomponente.Models.Marcha;
+import com.example.appbandacomponente.Models.Partitura;
 import com.example.appbandacomponente.Models.TablonAnuncio;
 import com.example.appbandacomponente.Models.Usuario;
 
@@ -37,9 +43,26 @@ public interface ApiServicio {
             @retrofit2.http.Query("idUsuario") int idUsuario,
             @retrofit2.http.Query("idEvento") int idEvento,
             @retrofit2.http.Query("estado") String estado,
-            @retrofit2.http.Query("observacion") String observacion // Nuevo campo
+            @retrofit2.http.Query("observacion") String observacion
     );
 
     @GET("api/asistencias/usuario/{idUsuario}")
     Call<List<Asistencia>> obtenerAsistenciasPorUsuario(@Path("idUsuario") int idUsuario);
+
+    @GET("api/marchas/banda/{idBanda}")
+    Call<List<Marcha>> obtenerMarchasPorBanda(@Path("idBanda") int idBanda);
+
+    @GET("api/partituras/marcha/{idMarcha}")
+    Call<List<Partitura>> obtenerPartiturasPorMarcha(@Path("idMarcha") int idMarcha);
+    @GET("api/bandas/{id}")
+    Call<Banda> obtenerBandaPorId(@Path("id") int id);
+    @GET("api/usuarios/banda/{idBanda}/detalles")
+    Call<List<ComponenteDTO>> obtenerUsuariosPorBanda(@Path("idBanda") int idBanda);
+
+    @GET("api/insignias/usuario/{idUsuario}")
+    Call<List<InsigniaOtorgadaDTO>> obtenerInsigniasPorUsuario(@Path("idUsuario") int idUsuario);
+    @GET("api/asistencias/estadisticas/{idUsuario}")
+    Call<EstadisticasAsistenciaDTO> obtenerEstadisticasAsistencia(@Path("idUsuario") int idUsuario);
+    @GET("api/asistencias/estadisticas-conciertos/{idUsuario}")
+    Call<EstadisticasAsistenciaDTO> obtenerEstadisticasConciertos(@Path("idUsuario") int idUsuario);
 }

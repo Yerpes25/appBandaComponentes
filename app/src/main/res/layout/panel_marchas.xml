@@ -14,81 +14,36 @@
         android:background="@android:drawable/edit_text"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:drawablePadding="8dp"
-        android:hint="Buscar marchas..."
+        android:hint="Buscar por nombre o autor..."
         android:inputType="text"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:textColor="#333333"
+        android:textColor="#000000"
+        android:textColorHint="#666666"
         android:textSize="16sp" />
 
-    <HorizontalScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:scrollbars="none">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <Spinner
+            android:id="@+id/comboGenero"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#000000" />
 
-            <TextView
-                android:id="@+id/filtroTodos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="#2A5C9A"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="Todos"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/filtroTradicional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="#E0E0E0"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="Género: Tradicional"
-                android:textColor="#333333"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/filtroProcesional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="#E0E0E0"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="Género: Procesional"
-                android:textColor="#333333"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/filtroMilitar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:background="#E0E0E0"
-                android:paddingStart="16dp"
-                android:paddingTop="8dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="8dp"
-                android:text="Género: Militar"
-                android:textColor="#333333"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </HorizontalScrollView>
+        <Spinner
+            android:id="@+id/comboFecha"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#000000" />
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -98,186 +53,10 @@
         android:scrollbars="none">
 
         <LinearLayout
+            android:id="@+id/contenedorDinamicoMarchas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="#FFF5E6"
-                        android:padding="8dp"
-                        android:src="@android:drawable/ic_media_play"
-                        app:tint="#D28F33" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Aquarela do Brasil"
-                            android:textColor="#000000"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Compositor: Ary Barroso, 1939"
-                            android:textColor="#666666"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/botonPartitura1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:backgroundTint="#E3F2FD"
-                        android:text="Acceder Partitura"
-                        android:textAllCaps="false"
-                        android:textColor="#1976D2"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="#FFF5E6"
-                        android:padding="8dp"
-                        android:src="@android:drawable/ic_media_play"
-                        app:tint="#D28F33" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Cidade Maravilhosa"
-                            android:textColor="#000000"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Compositor: André Filho, 1939"
-                            android:textColor="#666666"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/botonPartitura2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:backgroundTint="#E3F2FD"
-                        android:text="Acceder Partitura"
-                        android:textAllCaps="false"
-                        android:textColor="#1976D2"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="#FFF5E6"
-                        android:padding="8dp"
-                        android:src="@android:drawable/ic_media_play"
-                        app:tint="#D28F33" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Marcha Soldado"
-                            android:textColor="#000000"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Tradicional"
-                            android:textColor="#666666"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/botonPartitura3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:backgroundTint="#E3F2FD"
-                        android:text="Acceder Partitura"
-                        android:textAllCaps="false"
-                        android:textColor="#1976D2"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

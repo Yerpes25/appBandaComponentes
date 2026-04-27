@@ -8,9 +8,18 @@ public class TablonAnuncio {
     private Integer idAnuncios;
     private String titulo;
     private String mensaje;
+    private String fechaExpira;
 
     // Constructores, Getters y Setters
     public TablonAnuncio() {
+    }
+
+    public String getFechaExpira() {
+        return fechaExpira;
+    }
+
+    public void setFechaExpira(String fechaExpira) {
+        this.fechaExpira = fechaExpira;
     }
 
     public Integer getIdAnuncios() {
