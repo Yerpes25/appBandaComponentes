@@ -15,8 +15,18 @@ public class Evento {
     private String titulo;
     private String horaFin;
     private Banda banda;
+    private Boolean requiereConf;
 
-    public Evento() {}
+    public Evento() {
+    }
+
+    public Boolean getRequiereConf() {
+        return requiereConf;
+    }
+
+    public void setRequiereConf(Boolean requiereConf) {
+        this.requiereConf = requiereConf;
+    }
 
     public Integer getIdEvento() {
         return idEvento;

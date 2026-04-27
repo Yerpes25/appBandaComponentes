@@ -107,97 +107,172 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp" />
                     <EditText
                         android:id="@+id/editNombre"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#3B82F6"
-                        android:hint="Nombre"
+                        android:hint="Ej: Juan"
                         android:textColor="#FFFFFF"
-                        android:textColorHint="#9CA3AF" />
+                        android:textColorHint="#6B7280" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apellidos"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp" />
                     <EditText
                         android:id="@+id/editApellidos"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#3B82F6"
-                        android:hint="Apellidos"
+                        android:hint="Ej: Pérez García"
                         android:textColor="#FFFFFF"
-                        android:textColorHint="#9CA3AF" />
+                        android:textColorHint="#6B7280" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DNI"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp" />
                     <EditText
                         android:id="@+id/editDni"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#3B82F6"
-                        android:hint="DNI"
+                        android:hint="Ej: 12345678A"
                         android:textColor="#FFFFFF"
-                        android:textColorHint="#9CA3AF" />
+                        android:textColorHint="#6B7280" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Correo Electrónico"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp" />
                     <EditText
                         android:id="@+id/editEmail"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#3B82F6"
-                        android:hint="Email"
+                        android:hint="Ej: correo@ejemplo.com"
                         android:inputType="textEmailAddress"
                         android:textColor="#FFFFFF"
-                        android:textColorHint="#9CA3AF" />
+                        android:textColorHint="#6B7280" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teléfono"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp" />
                     <EditText
                         android:id="@+id/editTelefono"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#3B82F6"
-                        android:hint="Teléfono"
+                        android:hint="Ej: 600123456"
                         android:inputType="phone"
                         android:textColor="#FFFFFF"
-                        android:textColorHint="#9CA3AF" />
+                        android:textColorHint="#6B7280" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contacto de Emergencia"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp" />
                     <EditText
                         android:id="@+id/editEmergencia"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:layout_marginBottom="8dp"
                         android:backgroundTint="#3B82F6"
-                        android:hint="Contacto Emergencia"
+                        android:hint="Ej: 600654321"
                         android:inputType="phone"
                         android:textColor="#FFFFFF"
-                        android:textColorHint="#9CA3AF" />
+                        android:textColorHint="#6B7280" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dirección"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp" />
                     <EditText
                         android:id="@+id/editDireccion"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:layout_marginBottom="16dp"
                         android:backgroundTint="#3B82F6"
-                        android:hint="Dirección"
+                        android:hint="Ej: Calle Principal 1"
                         android:textColor="#FFFFFF"
-                        android:textColorHint="#9CA3AF" />
+                        android:textColorHint="#6B7280" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/editTallaCamisa"
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:backgroundTint="#3B82F6"
-                            android:hint="Camisa"
-                            android:textColor="#FFFFFF"
-                            android:textColorHint="#9CA3AF" />
+                            android:orientation="vertical"
+                            android:layout_marginEnd="8dp">
 
-                        <EditText
-                            android:id="@+id/editTallaChaqueta"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Talla Camisa"
+                                android:textColor="#9CA3AF"
+                                android:textSize="12sp" />
+                            <EditText
+                                android:id="@+id/editTallaCamisa"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:backgroundTint="#3B82F6"
+                                android:hint="Ej: M"
+                                android:textColor="#FFFFFF"
+                                android:textColorHint="#6B7280" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:backgroundTint="#3B82F6"
-                            android:hint="Chaqueta"
-                            android:textColor="#FFFFFF"
-                            android:textColorHint="#9CA3AF" />
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Talla Chaqueta"
+                                android:textColor="#9CA3AF"
+                                android:textSize="12sp" />
+                            <EditText
+                                android:id="@+id/editTallaChaqueta"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:backgroundTint="#3B82F6"
+                                android:hint="Ej: 50"
+                                android:textColor="#FFFFFF"
+                                android:textColorHint="#6B7280" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -205,34 +280,60 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/editTallaPantalon"
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:backgroundTint="#3B82F6"
-                            android:hint="Pantalón"
-                            android:textColor="#FFFFFF"
-                            android:textColorHint="#9CA3AF" />
+                            android:orientation="vertical"
+                            android:layout_marginEnd="8dp">
 
-                        <EditText
-                            android:id="@+id/editTallaGorra"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Talla Pantalón"
+                                android:textColor="#9CA3AF"
+                                android:textSize="12sp" />
+                            <EditText
+                                android:id="@+id/editTallaPantalon"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:backgroundTint="#3B82F6"
+                                android:hint="Ej: 42"
+                                android:textColor="#FFFFFF"
+                                android:textColorHint="#6B7280" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:backgroundTint="#3B82F6"
-                            android:hint="Gorra"
-                            android:textColor="#FFFFFF"
-                            android:textColorHint="#9CA3AF" />
+                            android:orientation="vertical"
+                            android:layout_marginStart="8dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Talla Gorra"
+                                android:textColor="#9CA3AF"
+                                android:textSize="12sp" />
+                            <EditText
+                                android:id="@+id/editTallaGorra"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:backgroundTint="#3B82F6"
+                                android:hint="Ej: 56"
+                                android:textColor="#FFFFFF"
+                                android:textColorHint="#6B7280" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <Button
                         android:id="@+id/botonGuardarCambios"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="24dp"
                         android:backgroundTint="#22C55E"
-                        android:text="Actualizar en Base de Datos"
+                        android:text="Actualizar"
                         android:textAllCaps="false" />
                 </LinearLayout>
             </LinearLayout>

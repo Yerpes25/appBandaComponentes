@@ -80,6 +80,8 @@ public class PanelPrincipalActividad extends AppCompatActivity {
         View cabecera = findViewById(R.id.cabecera_incluida);
         View fotoPerfil = cabecera.findViewById(R.id.contenedorFotoPerfil);
 
+        // Reemplaza el listener de la foto de perfil dentro de tu PanelPrincipalActividad.java
+
         fotoPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +97,10 @@ public class PanelPrincipalActividad extends AppCompatActivity {
                             return true;
                         case "Cerrar Sesión":
                             new GestorSesion(PanelPrincipalActividad.this).cerrarSesion();
-                            finish();
+
+                            android.content.Intent intencionLogin = new android.content.Intent(PanelPrincipalActividad.this, com.example.appbandacomponente.MainActivity.class);
+                            intencionLogin.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intencionLogin);
                             return true;
                     }
                     return false;

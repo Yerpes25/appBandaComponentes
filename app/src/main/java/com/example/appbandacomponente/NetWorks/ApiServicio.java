@@ -1,7 +1,9 @@
 package com.example.appbandacomponente.NetWorks;
 
+import com.example.appbandacomponente.Models.Asistencia;
 import com.example.appbandacomponente.Models.CredencialesLogin;
 import com.example.appbandacomponente.Models.Evento;
+import com.example.appbandacomponente.Models.TablonAnuncio;
 import com.example.appbandacomponente.Models.Usuario;
 
 import java.util.List;
@@ -26,4 +28,18 @@ public interface ApiServicio {
     Call<List<Evento>> obtenerEventosPorBanda(@Path("idBanda") int idBanda);
     @PUT("api/usuarios/actualizar/{id}")
     Call<Usuario> actualizarUsuario(@Path("id") int id, @Body Usuario usuario);
+
+    @GET("api/anuncios/banda/{idBanda}")
+    Call<List<TablonAnuncio>> obtenerNoticiasPorBanda(@Path("idBanda") int idBanda);
+
+    @POST("api/asistencias/votar")
+    Call<Void> enviarVotoAsistencia(
+            @retrofit2.http.Query("idUsuario") int idUsuario,
+            @retrofit2.http.Query("idEvento") int idEvento,
+            @retrofit2.http.Query("estado") String estado,
+            @retrofit2.http.Query("observacion") String observacion // Nuevo campo
+    );
+
+    @GET("api/asistencias/usuario/{idUsuario}")
+    Call<List<Asistencia>> obtenerAsistenciasPorUsuario(@Path("idUsuario") int idUsuario);
 }

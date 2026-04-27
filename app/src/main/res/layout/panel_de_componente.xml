@@ -12,16 +12,6 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/textoTituloAvisos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Avisos Importantes/Noticias"
-            android:textColor="#333333"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <androidx.cardview.widget.CardView
             android:id="@+id/tarjetaCarrusel"
             android:layout_width="match_parent"
@@ -58,7 +48,7 @@
                         android:id="@+id/textoTituloNoticia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="¡Atención! Cambio de Horario para el Ensayo General"
+                        android:text="Cargando avisos..."
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -68,19 +58,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="12dp"
-                        android:text="El cambio de horario para el Ensayo General estará disponible individualmente para el personal."
+                        android:text="Por favor, espera."
                         android:textColor="#666666"
-                        android:textSize="14sp" />
-
-                    <Button
-                        android:id="@+id/botonLeerMas"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:backgroundTint="#2A5C9A"
-                        android:text="Leer Más"
-                        android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -100,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="● ○ ○ ○"
+            android:text=""
             android:textColor="#2A5C9A"
             android:textSize="18sp" />
 
