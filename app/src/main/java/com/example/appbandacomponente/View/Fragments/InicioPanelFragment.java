@@ -115,21 +115,20 @@ public class InicioPanelFragment extends Fragment {
      */
     private void descargarNoticias() {
         int idBanda = gestorSesion.obtenerIdBanda();
+        int idUsuario = gestorSesion.obtenerIdUsuario();
 
-        // Si el usuario no tiene banda, forzamos el estado vacío inmediatamente
         if (idBanda == -1) {
             listaNoticias = null;
             actualizarVistaCarrusel();
             return;
         }
 
-        Call<List<TablonAnuncio>> llamada = ApiCliente.obtenerInstancia().obtenerNoticiasPorBanda(idBanda);
+        // Llamamos a la nueva ruta que trae todo el paquete
+        Call<List<TablonAnuncio>> llamada = ApiCliente.obtenerInstancia().obtenerNoticiasCompletas(idUsuario, idBanda);
+
         llamada.enqueue(new Callback<List<TablonAnuncio>>() {
             @Override
             public void onResponse(Call<List<TablonAnuncio>> call, Response<List<TablonAnuncio>> response) {
-                /* * Definicion: Verificamos si la respuesta es exitosa y contiene elementos.
-                 * En caso contrario, tratamos la lista como nula para disparar el aviso de vacio.
-                 */
                 if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
                     listaNoticias = response.body();
                     indiceNoticiaActual = 0;
