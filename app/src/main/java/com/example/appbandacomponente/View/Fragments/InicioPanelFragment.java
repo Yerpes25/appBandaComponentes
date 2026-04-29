@@ -188,6 +188,7 @@ public class InicioPanelFragment extends Fragment {
         iconoAnterior.setAlpha(indiceNoticiaActual == 0 ? 0.3f : 1.0f);
         iconoSiguiente.setAlpha(indiceNoticiaActual == listaNoticias.size() - 1 ? 0.3f : 1.0f);
     }
+
     /**
      * Metodo principal de carga.
      * Primero descarga los votos del usuario de la base de datos
