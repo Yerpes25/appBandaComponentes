@@ -1,11 +1,9 @@
 package com.example.appbandacomponente.Models;
 
 /**
- * Introduccion explicativa:
- * Clase auxiliar utilizada para el transporte de datos durante el inicio de sesion.
- * Empaqueta el correo y la clave para enviarlos a la API de Spring Boot.
- * ATENCION: Los nombres de las variables (correo y clave) DEBEN coincidir
- * exactamente con los que espera el servidor.
+ * Modelo auxiliar que representa las credenciales de inicio de sesion de un usuario.
+ * Se utiliza para encapsular el correo electronico y la clave que se envian al servidor
+ * durante el proceso de autenticacion.
  */
 public class CredencialesLogin {
 

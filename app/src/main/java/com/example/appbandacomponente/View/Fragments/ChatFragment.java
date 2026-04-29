@@ -15,10 +15,9 @@ import androidx.fragment.app.Fragment;
 import com.example.appbandacomponente.R;
 
 /**
- * Introduccion explicativa:
- * Fragmento que gestiona la interfaz del chat grupal de la banda.
- * Permite visualizar los mensajes enviados por otros musicos e interactuar
- * mediante el envio de texto y archivos adjuntos.
+ * Fragmento que representa la interfaz de mensajeria instantanea o chat de la banda.
+ * Gestiona la visualizacion de la conversacion y permite a los usuarios redactar
+ * y enviar mensajes de texto o archivos adjuntos a sus compañeros.
  */
 public class ChatFragment extends Fragment {
 

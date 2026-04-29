@@ -1,5 +1,9 @@
 package com.example.appbandacomponente.Models;
 
+/**
+ * Objeto de Transferencia de Datos (DTO) que encapsula las estadisticas de asistencia.
+ * Almacena la cantidad de eventos asistidos, el total de eventos y el porcentaje de asistencia.
+ */
 public class EstadisticasAsistenciaDTO {
     private long asistidos;
     private long totales;

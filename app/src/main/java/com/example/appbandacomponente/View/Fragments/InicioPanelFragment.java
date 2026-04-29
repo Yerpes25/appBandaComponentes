@@ -40,10 +40,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Introduccion explicativa:
- * Este fragmento representa la vista principal o "Home" del panel del componente.
- * Aqui se mostraran los avisos importantes en formato carrusel interactivo y la
- * lista de proximos eventos, descargados de la base de datos segun la banda del usuario.
+ * Fragmento que representa el panel de control principal para los componentes de la banda.
+ * Gestiona una interfaz dinámica que incluye un carrusel de noticias, la agenda de ensayos
+ * y eventos próximos, además de permitir la gestión interactiva de la asistencia del usuario.
  */
 public class InicioPanelFragment extends Fragment {
 

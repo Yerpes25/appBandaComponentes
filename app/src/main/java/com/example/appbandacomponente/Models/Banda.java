@@ -1,5 +1,10 @@
 package com.example.appbandacomponente.Models;
 
+/**
+ * Modelo que representa una banda musical.
+ * Almacena los datos principales de la agrupacion, su informacion de perfil,
+ * detalles de personalizacion visual y enlaces a sus redes sociales.
+ */
 public class Banda {
 
     private Integer idBanda;

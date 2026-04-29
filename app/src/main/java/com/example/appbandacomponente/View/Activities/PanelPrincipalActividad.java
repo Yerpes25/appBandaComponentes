@@ -21,9 +21,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 /**
- * Introduccion explicativa:
- * Actividad contenedora maestra. Mantiene la cabecera y el pie de pagina fijos,
- * y se encarga de intercambiar los fragmentos centrales segun la navegacion del usuario.
+ * Actividad principal que sirve como contenedor y eje de navegacion de la aplicacion movil.
+ * Gestiona el intercambio de fragmentos mediante una barra de navegacion inferior (BottomNavigationView)
+ * y proporciona acceso al perfil de usuario y al control de sesiones.
  */
 public class PanelPrincipalActividad extends AppCompatActivity {
 

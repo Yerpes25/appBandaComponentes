@@ -1,8 +1,9 @@
 package com.example.appbandacomponente.Models;
 
 /**
- * Modelo que representa el archivo digital de una marcha musical.
- * Contiene las rutas hacia los archivos PDF o Audio alojados en el servidor.
+ * Modelo que representa una partitura musical.
+ * Almacena las rutas de acceso a los archivos multimedia asociados,
+ * como el documento en formato PDF y el archivo de audio de referencia.
  */
 public class Partitura {
     private Integer idPartituras;

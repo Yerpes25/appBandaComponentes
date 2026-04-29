@@ -20,10 +20,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Introduccion explicativa:
- * Pantalla principal de inicio de sesion.
- * Captura los datos introducidos por el componente, los envia a la API
- * y, si son correctos, guarda la sesion y permite el paso.
+ * Actividad de inicio y puerta de enlace de la aplicación.
+ * Gestiona el proceso de autenticación de usuarios, la verificación de sesiones activas
+ * mediante persistencia local y la redirección al panel principal tras un inicio de sesión exitoso.
  */
 public class MainActivity extends AppCompatActivity {
 

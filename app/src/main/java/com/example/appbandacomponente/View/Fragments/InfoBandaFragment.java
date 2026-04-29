@@ -42,10 +42,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Introduccion explicativa:
- * Fragmento que gestiona la informacion corporativa de la banda.
- * Muestra el nombre resaltado, despliega anuncios interactivos, integra Google Maps
- * para la ubicacion del local y redirige a las redes sociales oficiales.
+ * Fragmento encargado de mostrar la información detallada de la banda musical.
+ * Gestiona la visualización de datos institucionales, la ubicación del local de ensayo en un mapa de Google,
+ * el acceso a redes sociales, anuncios específicos y el listado completo de componentes de la agrupación.
  */
 public class InfoBandaFragment extends Fragment implements OnMapReadyCallback {
 

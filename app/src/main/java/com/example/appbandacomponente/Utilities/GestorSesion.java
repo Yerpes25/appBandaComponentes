@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Clase encargada de manejar la sesion del usuario de forma local.
- * Utiliza SharedPreferences para recordar quien ha iniciado sesion
- * y guardar todos sus datos personales para mostrarlos en el perfil.
+ * Clase de utilidad encargada de gestionar la persistencia de la sesion del usuario en el dispositivo.
+ * Utiliza SharedPreferences para almacenar de forma local los datos del perfil, credenciales,
+ * roles y tallas de uniformidad, permitiendo mantener la sesion activa entre arranques de la aplicacion.
  */
 public class GestorSesion {
 

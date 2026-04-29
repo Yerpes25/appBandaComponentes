@@ -1,9 +1,9 @@
-/**
- * Clase que representa el identificador compuesto para la asistencia.
- * Mapea la clave primaria compuesta enviada por la API de Spring Boot.
- */
 package com.example.appbandacomponente.Models;
 
+/**
+ * Modelo que representa la clave primaria compuesta para la entidad Asistencia.
+ * Sirve para vincular de forma unica a un usuario con un evento especifico.
+ */
 public class AsistenciaId {
     private Integer idUsuario;
     private Integer idEvento;

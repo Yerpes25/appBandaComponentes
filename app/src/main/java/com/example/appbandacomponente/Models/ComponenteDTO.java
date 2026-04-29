@@ -1,5 +1,10 @@
 package com.example.appbandacomponente.Models;
 
+/**
+ * Objeto de Transferencia de Datos (DTO) que representa a un componente de la banda de forma resumida.
+ * Facilita el envio unicamente de los datos visuales importantes para el perfil,
+ * como el nombre completo, foto, instrumento o voz y su cargo dentro de la agrupacion.
+ */
 public class ComponenteDTO {
     private String nombreCompleto;
     private String fotoPerfil;
