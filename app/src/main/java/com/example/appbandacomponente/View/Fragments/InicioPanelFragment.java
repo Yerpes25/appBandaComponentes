@@ -116,6 +116,7 @@ public class InicioPanelFragment extends Fragment {
     private void descargarNoticias() {
         int idBanda = gestorSesion.obtenerIdBanda();
         int idUsuario = gestorSesion.obtenerIdUsuario();
+        String rolApp = gestorSesion.obtenerRol(); // Asegúrate de que GestorSesion tenga este método
 
         if (idBanda == -1) {
             listaNoticias = null;
@@ -123,8 +124,8 @@ public class InicioPanelFragment extends Fragment {
             return;
         }
 
-        // Llamamos a la nueva ruta que trae todo el paquete
-        Call<List<TablonAnuncio>> llamada = ApiCliente.obtenerInstancia().obtenerNoticiasCompletas(idUsuario, idBanda);
+        // Llamada actualizada con el rol del usuario
+        Call<List<TablonAnuncio>> llamada = ApiCliente.obtenerInstancia().obtenerNoticiasCompletas(idUsuario, idBanda, rolApp);
 
         llamada.enqueue(new Callback<List<TablonAnuncio>>() {
             @Override

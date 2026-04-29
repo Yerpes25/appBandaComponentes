@@ -66,8 +66,9 @@ public interface ApiServicio {
     @GET("api/asistencias/estadisticas-conciertos/{idUsuario}")
     Call<EstadisticasAsistenciaDTO> obtenerEstadisticasConciertos(@Path("idUsuario") int idUsuario);
 
-    @GET("api/anuncios/usuario/{idUsuario}/banda/{idBanda}")
+    @GET("api/anuncios/usuario/{idUsuario}/banda/{idBanda}/rol/{rolApp}")
     Call<List<TablonAnuncio>> obtenerNoticiasCompletas(
             @Path("idUsuario") int idUsuario,
-            @Path("idBanda") int idBanda);
+            @Path("idBanda") int idBanda,
+            @Path("rolApp") String rolApp);
 }

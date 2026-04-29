@@ -143,4 +143,8 @@ public class GestorSesion {
     public int obtenerIdBanda() {
         return preferencias.getInt(CLAVE_ID_BANDA, -1);
     }
+
+    public String obtenerRol() {
+        return preferencias.getString(CLAVE_ROL, "");
+    }
 }
