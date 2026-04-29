@@ -1,10 +1,9 @@
 package com.example.appbandacomponente.Models;
 
 /**
- * Introduccion explicativa:
- * Clase que representa una marcha del repertorio.
- * Los atributos coinciden exactamente con la entidad del servidor
- * para asegurar que la conversion de JSON a objeto sea correcta.
+ * Modelo que representa una marcha musical dentro del repertorio de la banda.
+ * Almacena los datos de la pieza, incluyendo su nombre, autor, fecha de montaje,
+ * categoria y su estado actual de ensayo o interpretacion.
  */
 public class Marcha {
 

@@ -1,10 +1,3 @@
-/*
- * =====================================================================================
- * PARTE 4: CAMBIOS EN EL FRONTEND - LÓGICA (MarchasFragment.java)
- * Sustituye tu MarchasFragment.java por este código completo.
- * =====================================================================================
- */
-
 package com.example.appbandacomponente.View.Fragments;
 
 import android.app.AlertDialog;
@@ -51,9 +44,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Fragmento que gestiona la pantalla del repertorio de marchas.
- * Descarga las marchas de la base de datos, permite filtrarlas por texto,
- * genero musical y fecha de montaje, y visualiza/reproduce sus partituras y audios.
+ * Fragmento encargado de gestionar el repertorio musical de la banda.
+ * Proporciona un sistema de visualización dinámica de marchas con capacidades de
+ * filtrado avanzado por género, fecha de montaje y búsqueda textual, permitiendo además
+ * el acceso a recursos multimedia como partituras en PDF y archivos de audio.
  */
 public class MarchasFragment extends Fragment {
 

@@ -4,9 +4,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Introduccion explicativa:
- * Configuracion del cliente Retrofit para establecer la conexion base.
- * Gestiona la direccion IP y el puerto de comunicacion con el servidor local.
+ * Clase cliente encargada de configurar y establecer la conexion HTTP con el servidor backend.
+ * Utiliza la libreria Retrofit bajo el patron Singleton para centralizar las peticiones de red
+ * y proporcionar una instancia unica de ApiServicio en toda la aplicacion.
  */
 public class ApiCliente {
     private static Retrofit retrofit = null;

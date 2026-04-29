@@ -26,8 +26,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Fragmento que gestiona la vista de perfil del usuario.
- * Permite visualizar los datos, editar la informacion personal y cerrar la sesion.
+ * Fragmento encargado de gestionar el perfil del usuario dentro de la aplicación.
+ * Permite visualizar la información personal, editar los datos de contacto y tallas
+ * de uniformidad, sincronizar los cambios con el servidor y gestionar el cierre de sesión.
  */
 public class PerfilFragment extends Fragment {
 

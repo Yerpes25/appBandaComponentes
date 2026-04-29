@@ -1,7 +1,9 @@
 package com.example.appbandacomponente.Models;
 
 /**
- * Objeto que recibe los datos de la insignia obtenida desde el servidor.
+ * Objeto de Transferencia de Datos (DTO) que representa una insignia otorgada a un usuario.
+ * Contiene la informacion basica de la insignia conseguida, como el titulo, el icono visual,
+ * la meta alcanzada y la fecha en la que se le concedio.
  */
 public class InsigniaOtorgadaDTO {
 

@@ -1,9 +1,9 @@
 package com.example.appbandacomponente.Models;
 
 /**
- * Introduccion explicativa:
- * Modelo de datos para el Usuario en la aplicacion Android.
- * Contiene exactamente los mismos atributos que el servidor para evitar fallos de lectura.
+ * Modelo que representa a un usuario de la aplicacion, ya sea un musico o un miembro de la directiva.
+ * Almacena toda su informacion personal, datos de contacto, credenciales de acceso,
+ * tallas para la uniformidad, estado de aprobacion y su rol dentro de la banda.
  */
 public class Usuario {
 

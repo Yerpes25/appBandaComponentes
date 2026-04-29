@@ -22,9 +22,9 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
- * Introduccion explicativa:
- * Definicion de las rutas de la API de Spring Boot.
- * Permite realizar peticiones HTTP de forma sencilla y manual.
+ * Interfaz que define los endpoints de la API REST para la comunicacion con el servidor mediante Retrofit.
+ * Actua como el contrato de red de la aplicacion, declarando las rutas y metodos HTTP (GET, POST, PUT) necesarios
+ * para gestionar la autenticacion, eventos, asistencias, repertorio, noticias y estadisticas de la banda.
  */
 public interface ApiServicio {
 

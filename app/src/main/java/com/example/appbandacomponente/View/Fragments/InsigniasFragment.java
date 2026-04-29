@@ -29,9 +29,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Introduccion explicativa:
- * Fragmento encargado de gestionar la pantalla de insignias y estadisticas de asistencia.
- * Muestra el progreso del musico en eventos y conciertos, asi como los logros obtenidos.
+ * Fragmento encargado de gestionar la visualización de logros y estadísticas del usuario.
+ * Muestra una vitrina dinámica con las insignias obtenidas y representa gráficamente
+ * el progreso de asistencia a ensayos y conciertos mediante barras de progreso circulares.
  */
 public class InsigniasFragment extends Fragment {
 

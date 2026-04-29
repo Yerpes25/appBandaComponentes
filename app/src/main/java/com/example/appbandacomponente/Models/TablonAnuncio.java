@@ -1,8 +1,8 @@
 package com.example.appbandacomponente.Models;
 
 /**
- * Modelo que representa un anuncio o noticia en la aplicacion movil.
- * Mapea los datos enviados por la API de Spring Boot correspondientes a TablonAnuncio.
+ * Modelo que representa un anuncio publicado en el tablon de la banda.
+ * Almacena el titulo, el cuerpo del mensaje y la fecha en la que expira dicho aviso.
  */
 public class TablonAnuncio {
     private Integer idAnuncios;

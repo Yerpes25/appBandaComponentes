@@ -1,10 +1,9 @@
 package com.example.appbandacomponente.Models;
 
 /**
- * Introduccion explicativa:
- * Clase que representa un evento (ensayo, concierto, procesion) en la aplicacion movil.
- * Los atributos coinciden exactamente con la base de datos de Spring Boot
- * para descargar la agenda de forma automatica.
+ * Modelo que representa un evento organizado por la banda, como un ensayo o un concierto.
+ * Almacena los detalles clave del evento, incluyendo su titulo, tipo, fecha, horario,
+ * ubicacion y si requiere confirmacion previa de asistencia por parte de los musicos.
  */
 public class Evento {
 
